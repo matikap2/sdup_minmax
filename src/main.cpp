@@ -17,9 +17,7 @@ int main()
     poly_derived.print();
 
     std::cout << "Calulating derived polynomial roots..." << std::endl;
-    std::vector<double> q_roots = poly_derived.roots();
-
-    std::vector<double> points = q_roots;
+    std::vector<double> points = poly_derived.roots();
     points.push_back(poly_derived.get_range_max());
     points.push_back(poly_derived.get_range_min());
 
