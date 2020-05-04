@@ -8,10 +8,7 @@ Poly::Poly(std::vector<double>& _coeff, double _range_min, double _range_max)
     range_min = _range_min;
     poly_degree = _coeff.size() - 1;
 
-    for (auto i : _coeff)
-    {
-        coeff.push_back(i);
-    }
+    coeff = _coeff;
 }
 
 void Poly::print(void)
@@ -91,10 +88,10 @@ std::vector<double> Poly::roots(void)
             return std::vector<double>();
 
         case 1:
-            return roots_linear(coeff);
+            return roots_linear(coeff, range_min, range_max);
 
         case 2:
-            return roots_quadratic(coeff);
+            return roots_quadratic(coeff, range_min, range_max);
 
         default:
             std::cout << "Evaluating other function roots than poly 0, 1st, 2nd degree is not available!" << std::endl;
